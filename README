@@ -1,0 +1,7 @@
+echoserv-poll is a PSL1GHT sample that basically sends back whatever was sent to it.
+
+It is the same as echoserv, but it uses poll for multiple connections.
+
+Server listens on port 8888. Use telnet as the client.
+
+Compilable for Linux too - just use `gcc main.c`.
