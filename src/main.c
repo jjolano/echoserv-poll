@@ -9,13 +9,9 @@
 #include <netdb.h>
 
 #ifdef __PS3__
-#include <io/pad.h>
 #include <net/net.h>
-#include <sys/process.h>
 #include <sysmodule/sysmodule.h>
 #include <ppu-types.h>
-
-SYS_PROCESS_PARAM(1000, SYS_PROCESS_SPAWN_STACK_SIZE_1M)
 #else
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -173,6 +169,11 @@ int main(void)
 				}
 				
 				printf("recv: %.*s\n", ret, message);
+				
+				if(strncmp(message, "exit", 4) == 0)
+				{
+					running = 0;
+				}
 				
 				// echo back
 				send((fds + i)->fd, message, ret, 0);

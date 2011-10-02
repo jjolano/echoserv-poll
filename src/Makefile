@@ -15,7 +15,7 @@ CONTENTID	:= UP0001-$(APPID)_00-0000000000000000
 ICON0		:= $(PS3DEV)/bin/ICON0.PNG
 SFOXML		:= ./sfo.xml
 
-LIBS		:= -lrt -llv2 -lnet -lio -lsysmodule -lsysutil
+LIBS		:= -lrt -llv2 -lnet -lsysmodule
 
 CFLAGS		:= -D__PS3__
 
