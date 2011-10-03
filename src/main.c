@@ -1,3 +1,5 @@
+// echoserv-poll by jjolano
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -83,7 +85,12 @@ int main(void)
 	{
 		int i;
 		
+		#ifdef __PS3__
+		// prevent hanging
 		ret = poll(fds, nfds, 2000);
+		#else
+		ret = poll(fds, nfds, -1);
+		#endif
 		
 		if(ret == -1)
 		{
@@ -182,6 +189,7 @@ int main(void)
 		}
 	}
 	
+	free(fds);
 	return 0;
 }
 
